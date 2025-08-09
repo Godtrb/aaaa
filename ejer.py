@@ -13,6 +13,17 @@ def quick_sort_Nombre(lista):
     mayores = [x for x in lista[1:] if x[1]["Nombre"] > pivote[1]["Nombre"]]
 
     return quick_sort_Nombre(menores) + iguales + quick_sort_Nombre(mayores)
+
+def quick_sort_Edad(lista):
+        if len(lista) <= 1:
+            return lista
+
+        pivote = lista[0]
+        menores = [x for x in lista[1:] if x[1]["Edad"] < pivote[1]["Edad"]]
+        iguales = [x for x in lista if x[1]["Edad"] == pivote[1]["Edad"]]
+        mayores = [x for x in lista[1:] if x[1]["Edad"] > pivote[1]["Edad"]]
+
+        return quick_sort_Edad(menores) + iguales + quick_sort_Edad(mayores)
 def ingresar_Participante(lista={}):
         dorsnum=int(input("ingrese numero de ID para el participante: "))
         name=input("ingrese nombre del participante: ")
@@ -45,7 +56,16 @@ while opt!=4:
         case 1:
             ingresar_Participante(participantes)
         case 2:
-            quick_sort_Nombre(participantes)
+            list = list(participantes.items())
+            result = quick_sort_Nombre(list)
+            for name, value in result:
+                print(f"{value['Nombre']}, {value['Edad']}, {value['Categ']}")
+        case 3:
+            list = list(participantes.items())
+            result = quick_sort_Edad(list)
+            for name, value in result:
+                print(f"{value['Nombre']}, {value['Edad']}, {value['Categ']}")
+
 list= list(participantes.items())
 result= quick_sort_Nombre(list)
 for name, value in result:
