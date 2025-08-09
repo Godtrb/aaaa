@@ -33,9 +33,19 @@ def ingresar_Participante(lista={}):
         else:
             print("Ingreso invalido, intente nuevamente")
 participantes={}
-ingresar_Participante(participantes)
-ingresar_Participante(participantes)
-ingresar_Participante(participantes)
+opt=0
+while opt!=4:
+    print("-----Menu Participantes------")
+    print("1.Ingresar participante")
+    print("2.Mostrar ordenados por Nombre")
+    print("3.Mostrar ordenados por edad")
+    print("Salir.")
+    opt=int(input(""))
+    match opt:
+        case 1:
+            ingresar_Participante(participantes)
+        case 2:
+            quick_sort_Nombre(participantes)
 list= list(participantes.items())
 result= quick_sort_Nombre(list)
 for name, value in result:
