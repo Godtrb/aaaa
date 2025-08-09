@@ -56,11 +56,13 @@ while opt!=4:
         case 1:
             ingresar_Participante(participantes)
         case 2:
+            list = {}
             list = list(participantes.items())
             result = quick_sort_Nombre(list)
             for name, value in result:
                 print(f"{value['Nombre']}, {value['Edad']}, {value['Categ']}")
         case 3:
+            list = {}
             list = list(participantes.items())
             result = quick_sort_Edad(list)
             for name, value in result:
